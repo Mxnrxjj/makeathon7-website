@@ -1,0 +1,127 @@
+.buttons{
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  margin-top: 160px;
+  margin-left: 250px;
+  margin-right: 250px;
+  
+  
+}
+.button1{
+  background: none;  
+  border: none; 
+  padding: 0; 
+  background-image: url('/Compass.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;  
+  height: 50px;  
+  transition-duration: 0.25s ;
+}
+.button2{
+  background: none;  
+  border: none; 
+  padding: 0; 
+  background-image: url('/Search_Magnifying_Glass.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;  
+  height: 40px;  
+  transition-duration: 0.25s ;
+}
+.button3{
+  background: none;  
+  border: none; 
+  padding: 0; 
+  background-image: url('/Close_Square.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;  
+  height: 40px;  
+  transition-duration: 0.25s ;
+}
+.button4{
+  background: none;  
+  border: none; 
+  padding: 0; 
+  background-image: url('/Swatches_Palette.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;  
+  height: 40px;  
+  transition-duration: 0.25s ;
+}
+.button5{
+  background: none;  
+  border: none; 
+  padding: 0; 
+  background-image: url('/Clock.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;  
+  height: 40px; 
+  transition-duration: 0.25s ;
+}
+
+.button1:hover,
+.button2:hover,
+.button3:hover,
+.button4:hover,
+.button5:hover {
+  transform: scale(1.2); 
+}
+.button1:hover::after,
+.button2:hover::after,
+.button3:hover::after,
+.button4:hover::after,
+.button5:hover::after {
+  content: "Track"; 
+  position: absolute;
+  top: 45px; 
+  
+  
+  background-color: rgba(42, 19, 3, 0.766); 
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap; 
+  visibility: visible;
+  opacity: 1;
+  transition-duration: 0.25;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  
+}
+
+.button1::after
+.button2::after
+.button3::after,
+.button4::after,
+.button5::after {
+  content: '';
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+
+.background {
+  background-image: url('public/Group 1.png');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+}
+
+

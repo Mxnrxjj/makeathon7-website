@@ -1,72 +1,224 @@
-.buttons{
-  display: flex;
-  justify-content: space-between ;
-  align-items: center;
-  margin-top: 160px;
-  margin-left: 250px;
-  margin-right: 250px;
-  
-  
+@font-face {
+    font-family: 'KoPub Batang';
+    src: url('../assets/fonts/KoPubBatang-Regular.ttf') format('truetype');
 }
-.button1{
-  background: none;  
-  border: none; 
-  padding: 0; 
-  background-image: url('/Compass.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 40px;  
-  height: 50px;  
-  transition-duration: 0.25s ;
+
+@font-face {
+    font-family: 'Abhaya Libre ExtraBold';
+    src: url('../assets/fonts/AbhayaLibre-ExtraBold.ttf') format('truetype');
 }
-.button2{
-  background: none;  
-  border: none; 
-  padding: 0; 
-  background-image: url('/Search_Magnifying_Glass.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 35px;  
-  height: 40px;  
-  transition-duration: 0.25s ;
+
+.tracksContainer {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
 }
-.button3{
-  background: none;  
-  border: none; 
-  padding: 0; 
-  background-image: url('/Close_Square.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 35px;  
-  height: 40px;  
-  transition-duration: 0.25s ;
+
+/* Custom scrollbar for WebKit browsers */
+.tracksContainer::-webkit-scrollbar {
+    width: 16px; /* Width of the scrollbar */
 }
-.button4{
-  background: none;  
-  border: none; 
-  padding: 0; 
-  background-image: url('/Swatches_Palette.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 35px;  
-  height: 40px;  
-  transition-duration: 0.25s ;
+
+.tracksContainer::-webkit-scrollbar-track {
+    background: #301a22; /* Background color of the scrollbar track */
 }
-.button5{
-  background: none;  
-  border: none; 
-  padding: 0; 
-  background-image: url('/Clock.png');
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 35px;  
-  height: 40px; 
-  transition-duration: 0.25s ;
+
+.tracksContainer::-webkit-scrollbar-thumb {
+    background-color: #451724; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Roundness of the scrollbar thumb */
+    border: 3px solid #301a22; /* Padding around the scrollbar thumb */
+}
+
+/* Custom scrollbar for Firefox */
+.tracksContainer {
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: #451724 #301a22; /* Color of the scrollbar thumb and track */
+}
+
+.tracks {
+    background-image: url('../assets/background.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    min-height: 120vh; 
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+    align-items: center;
+    margin-top: 20px;
+    width: 884px;
+    height: 50px;
+    position: absolute;
+    top: 209px;
+}
+
+/* Button styles */
+/* Button container styles */
+.button1 {
+    width: 49px;
+    height: 49px;
+    background: url('../assets/buttons/Compass.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Important for positioning the popup */
+}
+
+.button1::after {
+    font-family: "KoPub Batang", serif; /* Font for the tooltip */
+    content: "This is Track 1"; /* Tooltip text */
+    position: absolute;
+    top: 75px; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(47, 42, 42, 0.8); /* Dark background for tooltip */
+    color: #fff; /* White text color */
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.button2 {
+    width: 45px;
+    height: 45px;
+    background: url('../assets/buttons/Search_Magnifying_Glass.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Important for positioning the popup */
+}
+
+.button2::after {
+    font-family: "KoPub Batang", serif; /* Font for the tooltip */
+    content: "This is Track 2"; /* Tooltip text */
+    position: absolute;
+    top: 75px; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(47, 42, 42, 0.8); /* Dark background for tooltip */
+    color: #fff; /* White text color */
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.button3 {
+    width: 45px;
+    height: 45px;
+    background: url('../assets/buttons/Close_Square.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Important for positioning the popup */
+}
+
+.button3::after {
+    font-family: "KoPub Batang", serif; /* Font for the tooltip */
+    content: "This is Track 3"; /* Tooltip text */
+    position: absolute;
+    top: 75px; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(47, 42, 42, 0.8); /* Dark background for tooltip */
+    color: #fff; /* White text color */
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.button4 {
+    width: 45px;
+    height: 45px;
+    background: url('../assets/buttons/Swatches_Palette.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Important for positioning the popup */
+}
+
+.button4::after {
+    font-family: "KoPub Batang", serif; /* Font for the tooltip */
+    content: "This is Track 4"; /* Tooltip text */
+    position: absolute;
+    top: 75px; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(47, 42, 42, 0.8); /* Dark background for tooltip */
+    color: #fff; /* White text color */
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.button5 {
+    width: 50px;
+    height: 50px;
+    background: url('../assets/buttons/Clock.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Important for positioning the popup */
+}
+
+.button5::after {
+    font-family: "KoPub Batang", serif; /* Font for the tooltip */
+    content: "This is Track 5"; /* Tooltip text */
+    position: absolute;
+    top: 75px; /* Position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(47, 42, 42, 0.8); /* Dark background for tooltip */
+    color: #fff; /* White text color */
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore mouse events */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+    z-index: 10; /* Ensure it appears above other elements */
 }
 
 .button1:hover,
@@ -74,54 +226,336 @@
 .button3:hover,
 .button4:hover,
 .button5:hover {
-  transform: scale(1.2); 
+    transform: scale(1.2); /* Increase size by 20% on hover */
 }
+
+/* Triangular Tip */
+.button1::before,
+.button2::before,
+.button3::before,
+.button4::before,
+.button5::before {
+    content: "";
+    position: absolute;
+    top: 56px; /* Adjust triangle position */
+    left: 50%; /* Center it under the tooltip box */
+    transform: translateX(-50%);
+    border-width: 10px; /* Size of the triangle */
+    border-style: solid;
+    border-color: transparent transparent rgba(47, 42, 42, 0.8) transparent; /* Triangle color */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 9; /* Ensure it appears below the tooltip box */
+}
+
+/* Hover Effect */
 .button1:hover::after,
+.button1:hover::before,
 .button2:hover::after,
+.button2:hover::before,
 .button3:hover::after,
+.button3:hover::before,
 .button4:hover::after,
-.button5:hover::after {
-  content: "Track"; 
-  position: absolute;
-  top: 45px; 
-  
-  
-  background-color: rgba(42, 19, 3, 0.766); 
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  white-space: nowrap; 
-  visibility: visible;
-  opacity: 1;
-  transition-duration: 0.25;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  
+.button4:hover::before,
+.button5:hover::after,
+.button5:hover::before {
+    opacity: 1; /* Show tooltip and triangle on hover */
 }
 
-.button1::after
-.button2::after
-.button3::after,
-.button4::after,
-.button5::after {
-  content: '';
-  visibility: hidden;
-  opacity: 0;
+.button6 {
+    width: 50px;
+    height: 50px;
+    background: url('../assets/buttons/Arrow_Undo_Down_Left.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 35px;
+    left: 39px;
 }
 
-
-
-.background {
-  background-image: url('public/Group 1.png');
-  background-size: cover;
-  background-position: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  background-repeat: no-repeat;
+.line {
+    background-image: url('../assets/line.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 6px;
+    margin: 20px 0;
+    border: none;
+    position: absolute;
+    top: 269px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.8s ease-in-out;
 }
 
+.text {
+    color: #D2CBCB;
+    text-align: center;
+    font-family: 'KoPub Batang', serif;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 82px;
+}
+
+.text2 {
+    color: #D2CBCB;
+    text-align: center;
+    font-family: 'KoPub Batang', serif;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 284px;
+}
+
+.removebgPreview {
+    width: 155px; 
+    height: 115px; 
+    flex-shrink: 0;
+    background: url('../assets/removebgPreview.png') no-repeat center center;
+    background-size: contain;
+    margin-top: 0px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%; 
+    max-width: 849px; 
+    height: 413px;
+    position: relative;
+    margin-top: 345px;
+    flex-shrink: 0;
+    background: rgba(25, 15, 15, 0.65);
+    border-radius: 20px;
+}
+
+.text1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #D9D9D9;
+    text-align: center;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 75px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    opacity: 1;
+}
+
+.text3 {
+    display: flex;
+    width: 818px;
+    height: 104px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: absolute;
+    top: 511px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1; 
+    transition: opacity 0.5s ease; /* Same transition as TRACKS */
+}
+
+.top {
+    top: 511px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1; 
+    transition: opacity 0.5s ease; /* Same transition as TRACKS */
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes morph {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(50px); /* Adjust the final position as needed */
+    }
+}
+
+.morph {
+    transition: 0.5s ease-in-out;
+    animation: morph 0.5s backwards;
+}
+
+.someOtherClass {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%; 
+    max-width: 849px; 
+    height: 413px;
+    position: relative;
+    margin-top: 345px;
+    flex-shrink: 0;
+    background: rgba(25, 15, 15, 0.65);
+    border-radius: 20px;
+}
+
+/* Media query for tablets and mobile devices */
+@media (max-width: 768px) {
+    .tracksContainer {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        top: auto;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .button1 {
+        width: 35px;
+        height: 35px;
+    }
+
+    .text3 {
+        width: 90%;
+        font-size: 20px;
+        top: 400px;
+    }
+    .top {
+        top: 400px;
+    }
+
+    /* Add more responsive styles as needed */
+}
+
+/* Media query for small mobile devices */
+@media (max-width: 480px) {
+    .buttonContainer {
+        margin-top: 5px;
+    }
+
+    .button1 {
+        width: 30px;
+        height: 30px;
+    }
+
+    .text3 {
+        width: 90%;
+        font-size: 18px;
+        top: 350px;
+    }
+
+    .top {
+        top: 350px;
+    }
+}
+
+/* Media query for iPhone XR in portrait mode */
+@media (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+    .buttonContainer {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        top: auto;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .button1 {
+        width: 35px;
+        height: 35px;
+    }
+
+    .text3 {
+        width: 90%;
+        font-size: 20px;
+        top: 300px;
+    }
+
+    .top {
+        top: 300px;
+    }
+    .fade-in {
+        animation: fadeIn 0.8s forwards; /* Adjust the animation duration for iPhone XR */
+    }
+
+    .fade-out {
+        animation: fadeOut 0.2s forwards; /* Adjust the animation duration for iPhone XR */
+    }
+}
+
+/* Media query for iPhone XR in landscape mode */
+@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+    .buttonContainer {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        top: auto;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .button1 {
+        width: 35px;
+        height: 35px;
+    }
+    .text3 {
+        width: 90%;
+        font-size: 20px;
+        top: 150px;
+    }
+
+    .top {
+        top: 150px;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.8s forwards; /* Adjust the animation duration for iPhone XR */
+    }
+
+    .fade-out {
+        animation: fadeOut 0.2s forwards; /* Adjust the animation duration for iPhone XR */
+    }
+}
 
